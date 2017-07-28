@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
+    <head>
+    <meta charset="utf-8" />
+    <title>${title}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <!-- Le styles -->
+    <style type="text/css">
+        body {
+            padding-top: 80px;
+        }
+    </style>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="${asset:context:/favicon.ico}" />
+</head>
+
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container container-icon-pos" >
+	    <div class="navbar-header">
+            <!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>-->
+
+            <t:eventlink event="ajrefresh" class="navbar-brand navbar-icon navbar-icon-exit" async="true"></t:eventlink>
+            
+            <t:pagelink id="adminLink" page="Admin" class="navbar-brand navbar-icon navbar-icon-admin"></t:pagelink>
+            <!--<t:pagelink id="exitLink" page="LogIn" class="navbar-brand navbar-icon navbar-icon-exit"></t:pagelink>-->
+            <t:actionlink t:id="logout" class="navbar-brand navbar-icon navbar-icon-exit"></t:actionlink>
+            <t:pagelink id="homeLink" page="index" class="navbar-brand navbar-icon navbar-icon-home"></t:pagelink>
+            <t:pagelink id="bookLink" page="BooksNameJquery" class="navbar-brand navbar-icon navbar-icon-book" ></t:pagelink>
+            <t:pagelink id="authorLink" page="AuthorNameJquery" class="navbar-brand navbar-icon navbar-icon-author"></t:pagelink>
+
+
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="span12">
+            <t:alerts/>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+<t:zone t:id="time2Zone" id="time2Zone">
+    <t:body />
+</t:zone>
+
+    <hr />
+    <footer>
+        <p>&copy; NMetAU 2017</p>
+
+    </footer>
+
+</div> <!-- /container -->
+
+</body>
+</html>

@@ -1,0 +1,181 @@
+<html t:type="layout" title="Admin"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd"
+      xmlns:p="tapestry:parameter">
+
+    <br/>
+    <h3>Администрирование Elib</h3>
+    <br/>
+        <ul t:id="tabs" t:type="any" class="nav nav-tabs">
+            <li class="active">
+                <a href="#tab1" data-toggle="tab">Библиотека</a>
+            </li>
+            <li >
+                <a href="#tab2" data-toggle="tab">Аккаунты</a>
+            </li>
+            
+        </ul>
+
+    <div class="tab-content">
+
+        <div id="tab1" class="tab-pane active">
+            <t:zone t:id="booksZone" id="booksZone">
+                <t:form t:id="uploadBooks" class="form-horizontal">
+                    <div class="eg">
+                        <div class="form-group">
+                            <div class="col-sm-10 col-sm-offset-1">
+                                <input t:type="upload" t:id="file" t:value="file"  class="form-control-upload"/>
+                                <div class="form-group has-error">
+                                    <span class="help-block">
+                                        <t:outputraw value="${errorUploadMessage}"/>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="eg">
+                        <div class="form-group">
+                            <div class="col-sm-7 col-sm-offset-1">
+                                <t:textfield t:id="valAuthorsFull_name" maxLength="c" t:validate="required, maxLength=100"
+                                    placeholder="Имя и инициалы автора (ов)" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-6 col-sm-offset-1">
+                                <t:TextArea t:id="valAuthorsDescription" placeholder="Описание автора (ов)" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="eg">
+
+                        <div class="form-group">
+                            <div class="col-sm-10 col-sm-offset-1">
+                                <t:textfield t:id="valBooksTitle" maxLength="c" t:validate="required, maxLength=100"
+                                    placeholder="Название книги" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-3 col-sm-offset-1">
+                                <t:textfield t:id="valBooksYear" maxLength="c" t:validate="required, maxLength=11"
+                                    placeholder="Год издания книги" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-10 col-sm-offset-1">
+                                <t:TextArea t:id="valBooksDescription" placeholder="Описание книги (можно использовать html tags)" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-3 col-sm-offset-1">
+                                <input type="submit" value="Загрузить" class="fg-button ui-button ui-state-default"/>
+                            </div>
+                        </div>
+                    </div>
+                </t:form>
+            </t:zone>
+
+            <div class="eg">
+                    <p>Результаты по запросу</p>
+
+                    <table class="table table-hover table-bordered table-striped" id="loopjqbooks">
+                        <thead>
+                            <tr>
+                                <th>Год</th>
+                                <th>Название</th>
+                                <th>Авторы</th>
+                                <th>Удалить</th>
+                                <th>Изменить</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t:type="loop" t:source="books" t:value="book">
+                                <td>${book.year}</td>
+                                <td>${book.title}</td>
+                                <td>${book.authors_full_name}</td>
+                                <td><t:eventlink event="deleteBooks" context="deleteBooksContext">Удалить</t:eventlink></td>
+                                <td><t:eventlink event="updateBooks" context="updateBooksContext" async="true">Изменить</t:eventlink></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+
+        </div>
+
+        <div id="tab2" class="tab-pane">
+
+            <div class="eg">
+                <t:zone t:id="time2Zone" id="time2Zone">
+                    <t:form t:id="login" class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-sm-3 col-sm-offset-4">
+                                <t:textfield t:id="loginId" maxLength="15" t:validate="required, maxLength=15"
+                                    placeholder="Логин" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-3 col-sm-offset-4">
+                                <t:passwordfield t:id="password" class="input-medium" maxLength="30" t:validate="required, maxLength=30"
+                                    placeholder="Пароль" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-3 col-sm-offset-4">
+                                <t:passwordfield t:id="rpassword" class="input-medium" maxLength="30" t:validate="required, maxLength=30"
+                                    placeholder="Пароль повторно" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-3 col-sm-offset-4">
+                                <t:select t:id="userRole" model="userRoles" blankOption="ALWAYS" blankLabel="Роль..." />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-3 col-sm-offset-4">
+                                <t:TextArea t:id="userDescription" placeholder="Описание пользователя"></t:TextArea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-4 col-sm-offset-5">
+                                <t:submit value="Готово" class="fg-button ui-button ui-state-default" />
+                            </div>
+                        </div>
+                    </t:form>
+                </t:zone>
+            </div>
+
+            <div class="eg">
+                <table class="table table-hover table-bordered table-striped" id="loopjq">
+                    <thead>
+                        <tr>
+                            <th>Логин</th>
+                            <th>Роль</th>
+                            <th>Описание</th>
+                            <th>Удаление пользователя</th>
+                            <th>Изменение пользователя</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr t:type="loop" t:source="users" t:value="user">
+                            <td>${user.loginId}</td>
+                            <td>${user.role}</td>
+                            <td>${user.description}</td>
+                            <td><t:eventlink event="deleteUser" context="user.userId">Удалить</t:eventlink></td>
+                            <td><t:eventlink event="updateUser" context="userContext" async="true">Изменить</t:eventlink></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+    </div>
+
+
+
+</html>

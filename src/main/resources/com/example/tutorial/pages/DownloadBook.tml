@@ -1,0 +1,36 @@
+<html t:type="layout" title="Elib/Download"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd"
+      xmlns:p="tapestry:parameter">
+<br/>
+<h2>Загрузка книги</h2>
+
+
+<h3>
+    <div class="eg">
+        <p>${Title}</p>
+    </div>
+</h3>
+    <div class="eg">
+        <p>${Authors}</p>
+    
+        <t:outputraw value="${Description}"/>
+    </div>
+
+
+<div class="eg">
+    
+    <table >
+        <tbody>
+            <tr t:type="loop" t:source="downloadFiles" t:value="downloadFile">
+		<td style="${hideLinck}"><a t:id="downloadLink" context="downloadFile.file_name">СКАЧАТЬ</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+<div class="has-error">
+<p class="help-block" style="${hideErr}">Файл временно недоступен.</p>
+</div>
+
+</div>
+
+</html>

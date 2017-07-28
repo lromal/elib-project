@@ -1,0 +1,27 @@
+<html t:type="layout" title="Elib"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd"
+      xmlns:p="tapestry:parameter">
+
+    <br/>
+    <h2>Электронная библиотека Elib</h2>
+    <br/>
+
+    <div class="eg">
+        Сайт <t:pagelink t:id="fgh" page="index">Elib</t:pagelink> предназначен для 
+        поиска и скачивания различной литературы. 
+        На данный момент реализовано два вида поиска: 
+        <t:pagelink page="AuthorNameJquery" >по автору</t:pagelink> и 
+        <t:pagelink page="BooksNameJquery">по названию</t:pagelink>.
+    </div>
+    <div class="eg">
+        Elib находиться в разработке поэтому возможны ошибки, изменение структуры и 
+        дизайна сайта.
+    </div>
+    
+
+
+
+
+
+
+</html>

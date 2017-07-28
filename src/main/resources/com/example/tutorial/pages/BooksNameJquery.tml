@@ -1,0 +1,71 @@
+<html t:type="layout" title="Elib/Books"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd"
+      xmlns:p="tapestry:parameter"
+>
+
+
+    
+<br/>
+
+    <h2 >Поиск по названию книги</h2>
+
+
+
+    <t:form t:id="names" class="form-horizontal">
+        <div class="eg">
+            <div class="form-group">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <t:textfield t:id="fullName" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-4 col-sm-offset-5">
+                    <t:submit class="fg-button ui-button ui-state-default" value="Поиск"/>
+                </div>
+            </div>
+        </div>
+        <div class="eg">
+            <div class="form-group">
+                <t:label for="libNamme">Библиотека:</t:label>
+                <t:radiogroup t:id="libNamme">
+                    <!--<t:radio class="radio" t:id="kolhoz" />
+                    <t:label for="kolhoz">Колхоз</t:label>-->
+                    <t:radio class="radio" t:id="myLib"/>
+                    <t:label for="myLib">MYLIB</t:label>
+                </t:radiogroup>
+            </div>
+            
+        </div>
+    </t:form>
+    
+    <div class="eg" id="qweasd">
+        <p>Результаты по запросу "${searchStr}"</p>
+
+        <table class="table table-hover table-bordered table-striped" id="loopjq">
+            <thead>
+                <tr>
+                    <th>Год</th>
+                    <th>Название</th>
+                    <th>Авторы</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr t:type="loop" t:source="books" t:value="book">
+                    <td>${book.year}</td>
+                    <td><t:eventlink event="useDownloadBook" context="book.id">${book.title}</t:eventlink></td>
+                    <td>${book.authors_full_name}</td>
+                </tr>
+            </tbody>
+        </table>
+        
+    </div>
+           
+
+       
+    <!--<div class="eg" id="qweasd">
+        <t:form>
+            
+        </t:form>
+    </div>-->
+</html>

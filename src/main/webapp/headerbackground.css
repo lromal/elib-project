@@ -1,0 +1,84 @@
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * jQueryUI DataTables display
+ */
+
+
+.navbar-inverse{
+    /*background-color: #e4e3de !important;*/
+    background-color: #e4e3de !important;
+    background-image: url('images/header.jpg') !important;
+    background-size: cover !important;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 200px !important;
+    border-color: #f7f7f7;
+}
+.navbar{
+    height: 100px !important;
+}
+
+.navbar-fixed-top {
+    position: absolute !important;
+}
+
+a.navbar-brand.navbar-icon-book {
+    background-image: url('images/BookName.png') !important;
+}
+
+a.navbar-brand.navbar-icon-exit {
+    background-image: url('images/exit.png') !important;
+}
+
+a.navbar-brand.navbar-icon{
+    margin: 0 20px ;
+    margin-top: 20px ;
+    padding: 15px 25px !important;
+    border-radius: 4px;
+
+}
+
+a.navbar-brand.navbar-icon:hover {
+    background-color: #f7f7f7 !important;
+}
+
+
+
+a.navbar-brand.navbar-icon-author {
+    /*margin-right: 1em;*/
+    background-image: url('images/AuthorName.png') !important;
+}
+
+a.navbar-brand.navbar-icon-admin {
+    /*margin-right: 5em ;*/
+    background-image: url('images/Admin.png') !important;
+    color: #f7941e;
+    display: none;
+}
+
+a.navbar-brand.navbar-icon-home {
+    background-image: url('images/Home.png') !important;
+}
+
+.container.container-icon-pos {
+    align-items: center !important;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    overflow: auto;   
+    opacity: 0.6 !important;
+
+}
+
+/*body {
+    background-image:url(images/header.jpg) !important;
+    background-repeat:no-repeat !important;
+    background-attachment:fixed !important;
+    background-position:0px 140px !important;
+    background-size: contain !important;
+}
+
+.container {
+    background-color: #fff !important;
+    opacity: 0.9 !important;
+}*/
