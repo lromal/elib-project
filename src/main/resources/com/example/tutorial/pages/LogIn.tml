@@ -12,6 +12,14 @@
 
         <div class="row" id="instructions">
             Для входа введите логин и пароль.
+
+            <div class="form-group has-error">
+                <span class="help-block">
+                    Логин администратора: sa<br/>
+                    Пароль администратора: sa
+                </span>
+            </div>
+
         </div>
 
         <div class="row">
