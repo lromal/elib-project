@@ -96,7 +96,7 @@ public class PersistenceJPAConfig {
 	 */
 	Properties additionalProperties() {
 		Properties properties = new Properties();
-		properties.setProperty("hibernate.hbm2ddl.auto", env.getRequiredProperty("jdbc.hbm2ddl.auto"));
+//		properties.setProperty("hibernate.hbm2ddl.auto", env.getRequiredProperty("jdbc.hbm2ddl.auto"));
 		properties.setProperty("hibernate.dialect", env.getRequiredProperty("jdbc.dialect"));
 		properties.setProperty("hibernate.show_sql", env.getRequiredProperty("jdbc.hibernate.show_sql"));
 		return properties;

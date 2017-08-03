@@ -5,6 +5,7 @@
  */
 package com.example.tutorial.entities;
 
+import com.example.tutorial.services.View;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
@@ -16,6 +17,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
+import org.codehaus.jackson.map.annotate.JsonView;
 
 /**
  * 
@@ -57,19 +59,24 @@ public class MyLibBooks implements Books{
     /*Only for tapestry*/
 	@Override
 	@Transient
-    public String getAuthors_full_name() {
+    @JsonView(View.Private.class)
+	public String getAuthors_full_name() {
         return authors.getFull_name();
     }
 	/*Only for tapestry*/
 	@Override
 	@Transient
-    public String getAuthors_Description() {
+    @JsonView(View.Private.class)
+	public String getAuthors_Description() {
         return authors.getDescription();
     }
+	
+	//TODO getId_author already exist, delete this parameter?
 	/*Only for tapestry*/
 	@Override
 	@Transient
-    public Long getAuthors_id() {
+    @JsonView(View.Private.class)
+	public Long getAuthors_id() {
         return authors.getId();
     }
 
@@ -105,9 +112,11 @@ public class MyLibBooks implements Books{
         this.id = id;
     }
 
+	
 	@Override
     @Column(name = "id_author" , insertable = false, updatable = false)
-    public Long getId_author() {
+    @JsonView(View.Private.class)
+	public Long getId_author() {
         return id_author;
     }
 

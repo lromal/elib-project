@@ -5,12 +5,14 @@
  */
 package com.example.tutorial.domain.security;
 
+import com.example.tutorial.services.View;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import org.codehaus.jackson.map.annotate.JsonView;
 
 //TODO: move to other package, for example com.example.tutorial.domain.security.entities
 /**
@@ -32,6 +34,7 @@ public class User {
 	private String loginId = null;
 
 	@Column(name = "password")
+	@JsonView(View.Private.class)
 	private String password = null;
 
 	@Column(name = "role")
