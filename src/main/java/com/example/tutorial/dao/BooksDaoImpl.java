@@ -23,6 +23,7 @@ public class BooksDaoImpl implements BooksDao {
 	@PersistenceContext
 	private EntityManager em;
 
+	//TODO delete all method contain BooksImpl
 	@Override
 	public List<Books> findBooksImplByAuthors(String searchStr) {
 		List<Books> retBook = em.createQuery("select b "
@@ -41,6 +42,13 @@ public class BooksDaoImpl implements BooksDao {
 		return retBook;
 
 	}
+	
+		@Override
+	public MyLibBooks findMyLibBooksById(Long id) {
+		MyLibBooks retBook = em.find(MyLibBooks.class, id);
+		return retBook;
+	}
+
 	@Override
 	public List<Books> findBookImplsByTitle(String searchStr) {
 		List<Books> retBook = em.createQuery("select b "

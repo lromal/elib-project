@@ -29,6 +29,9 @@ public interface BooksService {
 	 */
 	List<Books> getBooksImplByTitle(String searchStr);
 
+	//TODO add doc
+	public Books getMyLibBooksById(Long id);
+	
 	/**
 	 * Find books by authors full name.
 	 *

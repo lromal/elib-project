@@ -8,7 +8,11 @@ package com.example.tutorial.rest;
 import com.example.tutorial.entities.Books;
 import com.example.tutorial.services.BooksService;
 import com.example.tutorial.services.View;
+import java.io.File;
+import java.io.InputStream;
 import java.util.List;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.ResponseBuilder;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.json.JSONArray;
 import org.apache.tapestry5.json.JSONObject;
@@ -26,10 +30,37 @@ public class BooksResourceImpl implements BooksResource {
 	private BooksService booksService;
 
 	private List<Books> books;
-	
+	private Books book;
+
 	public List<Books> getAllBooks() {
 		books = booksService.getAllMyLibBooks();
 		return books;
+	}
+
+	public List<Books> getBooksByAuthors(String searchStr) {
+		books = booksService.getMyLibBooksByAuthors(searchStr);
+		return books;
+	}
+
+	public Response getFile() {
+		InputStream is = getClass().getResourceAsStream("/download/books/" + "mylib/HellowWorld2.txt");
+//		File file = new File("/home/kirito/Project/elib-project/target/classes/download/books/mylib/HellowWorld2.txt");
+//		ResponseBuilder response = Response.ok((Object) file);
+		ResponseBuilder response = Response.ok((Object) is);
+//		response.header("Content-Disposition", "attachment; filename=" + file.getName());
+		response.header("Content-Disposition", "attachment; filename=" + "HellowWorld2.txt");
+		return response.build();
+
+	}
+
+	public List<Books> getBooksByTitle(String searchStr) {
+		books = booksService.getMyLibBooksByTitle(searchStr);
+		return books;
+	}
+
+	public Books getBooksById(Long id) {
+		book = booksService.getMyLibBooksById(id);
+		return book;
 	}
 //	public String getAllBooks() {
 //		JSONObject json = new JSONObject();

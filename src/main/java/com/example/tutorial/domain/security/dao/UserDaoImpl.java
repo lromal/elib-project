@@ -34,6 +34,12 @@ public class UserDaoImpl implements UserDao {
 		List<User> retUser = em.createQuery("select u from User u").getResultList();
 		return retUser;
 	}
+	
+	@Override
+	public User findUserById(Long id) {
+		User retUser = em.find(User.class, id);
+		return retUser;
+	}
 
 	@Transactional
 	@Override

@@ -22,11 +22,15 @@ public class UserResourceImpl implements UserResource{
 
 	
 	private List<User> users;
+	private User user;
 
 	
-	@Override
 	public List<User> getAllUsers() {
 		users = userService.getAllUser();
 		return users;
+	}
+	public User getUserById(Long id) {
+		user = userService.getUserById(id);
+		return user;
 	}
 }

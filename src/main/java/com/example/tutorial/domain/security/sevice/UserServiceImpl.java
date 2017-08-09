@@ -33,6 +33,10 @@ public class UserServiceImpl implements UserService {
 	public List<User> getAllUser() {
 		return userDao.findAllUser();
 	}
+	@Override
+	public User getUserById(Long id) {
+		return userDao.findUserById(id);
+	}
 
 	@Override
 	public void addUsers(User users) {

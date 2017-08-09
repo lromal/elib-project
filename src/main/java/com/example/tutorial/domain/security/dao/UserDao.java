@@ -28,6 +28,9 @@ public interface UserDao {
 	 * @return 
 	 */
 	User findUser(String loginId, String password);
+	
+	//TODO add documentation
+	public User findUserById(Long id);
 
 	/**
 	 * Save user in database

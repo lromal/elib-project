@@ -41,6 +41,9 @@ public interface UserService {
 	 * @param user 
 	 */
 	void addUsers(User user);
+	
+	//TODO add documentation
+	public User getUserById(Long id);
 
 	/**
 	 * Delete user in database

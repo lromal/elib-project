@@ -10,18 +10,26 @@ import com.example.tutorial.services.View;
 import java.util.List;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import org.codehaus.jackson.map.annotate.JsonView;
 
 /**
- * 
- * 
+ *
+ *
  * @author kirito
  */
 @Path("/users")
 public interface UserResource {
+
 	@GET
-    @Produces({ "application/json" })
-    @JsonView(View.REST.class)
+	@Produces({"application/json"})
+	@JsonView(View.REST.class)
 	public List<User> getAllUsers();
+
+	@GET
+	@Path("{id : \\d+}") //support digit only
+	@Produces({"application/json"})
+	@JsonView(View.REST.class)
+	public User getUserById(@PathParam("id") Long id);
 }

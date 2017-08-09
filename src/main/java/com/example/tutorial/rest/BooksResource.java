@@ -10,8 +10,10 @@ import com.example.tutorial.services.View;
 import java.util.List;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import org.apache.tapestry5.json.JSONObject;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import org.codehaus.jackson.map.annotate.JsonView;
 
 /**
@@ -21,10 +23,33 @@ import org.codehaus.jackson.map.annotate.JsonView;
 @Path("/books")
 //TODO move to rest package
 public interface BooksResource {
+
 	@GET
-    @Produces({ "application/json" })
-    @JsonView(View.REST.class)
+	@Produces({"application/json"})
+	@JsonView(View.REST.class)
 	public List<Books> getAllBooks();
+
+	@GET
+	@Path("{id : \\d+}") //support digit only
+	@Produces({"application/json"})
+	@JsonView(View.REST.class)
+	public Books getBooksById(@PathParam("id") Long id);
 //    public String getAllBooks();
-	
+
+	@GET
+	@Path("/authors/{searchStr}")
+	@Produces({"application/json"})
+	@JsonView(View.REST.class)
+	public List<Books> getBooksByAuthors(@PathParam("searchStr") String searchStr);
+
+	@GET
+	@Path("/title/{searchStr}")
+	@Produces({"application/json"})
+	@JsonView(View.REST.class)
+	public List<Books> getBooksByTitle(@PathParam("searchStr") String searchStr);
+
+	@GET
+	@Path("/download")
+	@Produces(MediaType.APPLICATION_OCTET_STREAM)
+	public Response getFile();
 }

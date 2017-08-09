@@ -40,6 +40,11 @@ public class BooksServiceImpl implements BooksService {
 	public List<Books> getMyLibBooksByTitle(String searchStr) {
 		return booksDao.findMyLibBookByTitle(searchStr);
 	}
+	
+	@Override
+	public Books getMyLibBooksById(Long id) {
+		return booksDao.findMyLibBooksById(id);
+	}
 	/**
 	 * Add new employee
 	 * 

@@ -25,6 +25,9 @@ public interface BooksDao {
 	 */
 	public List<Books> findMyLibBooksByAuthors(String searchStr);
 
+	//TODO add doc
+	public MyLibBooks findMyLibBooksById(Long id);
+	
 	/**
 	 * Find books by title. 
 	 *
