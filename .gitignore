@@ -1,0 +1,19 @@
+# Ignored files:
+*.doc
+*.eml
+*.exe
+*.obj
+*.old
+*.xls
+*.zip
+*.~*
+*.*~
+*.#00
+*.pch
+*.swp
+*.iml
+
+# Ignored folders:
+.idea
+.svn
+target
